@@ -12,6 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         //
+        Schema::create('libur', function (Blueprint $table) {
+            $table->string('id_act');
+            $table->string('date');
+            $table->string('reason');
+        });
     }
 
     /**
@@ -20,5 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('libur');
     }
 };
