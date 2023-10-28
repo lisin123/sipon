@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nis');
             $table->string('id_act');
             $table->string('reason');
-            $table->string('status');
+            $table->string('status')->nullable();
         });
     }
 

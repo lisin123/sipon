@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('reason');
             $table->string('start_date');
             $table->string('finish_date');
-            $table->string('is_come');
-            $table->string('late');
-            $table->string('charge');
-            $table->string('is_paid');
+            $table->string('is_come')->nullable();
+            $table->string('late')->nullable();
+            $table->string('charge')->nullable();
+            $table->string('is_paid')->nullable();
         });
     }
 
