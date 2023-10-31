@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Absen extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nis', 'id_act', 'datetime'];
 }

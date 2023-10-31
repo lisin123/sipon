@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('absens', function (Blueprint $table) {
             $table->string('nis');
             $table->string('id_act');
-            $table->string('datetime');
+            $table->string('date');
         });
     }
 
