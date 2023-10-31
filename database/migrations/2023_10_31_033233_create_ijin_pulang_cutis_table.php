@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('ijin_pulang_cuti', function (Blueprint $table) {
+        Schema::create('ijin_pulang_cutis', function (Blueprint $table) {
             $table->string('type'); //pulang atau cuti
             $table->string('nis');
             $table->string('reason');
@@ -30,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('ijin_pulang_cuti');
+        Schema::dropIfExists('ijin_pulang_cutis');
     }
 };

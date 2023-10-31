@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('ijin_kegiatan', function (Blueprint $table) {
+        Schema::create('ijin_kegiatans', function (Blueprint $table) {
             $table->string('date');
             $table->string('nis');
             $table->string('id_act');
@@ -26,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('ijin_kegiatan');
+        Schema::dropIfExists('ijin_kegiatans');
     }
 };

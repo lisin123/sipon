@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('libur', function (Blueprint $table) {
+        Schema::create('absens', function (Blueprint $table) {
+            $table->string('nis');
             $table->string('id_act');
-            $table->string('date');
-            $table->string('reason');
+            $table->string('datetime');
         });
     }
 
@@ -24,7 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('libur');
+        Schema::dropIfExists('absens');
     }
 };
