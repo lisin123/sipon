@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class JenisAbsen extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'id_act';
 }

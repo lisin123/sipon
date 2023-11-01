@@ -59,10 +59,12 @@
                             @foreach ($kegiatans as $row)
                             <tr>
                               <td>{{ $row -> date }}</td>
-                              <td>{{ $row -> nis }}</td>
-                              <td>{{ $row -> id_act }}</span></td>
+                              <td>{{ $row -> santri -> name }}</td>
+                              <td>{{ $row -> kegiatan -> name_act }}</span></td>
                               <td>{{ $row -> reason }}</td>
-                              <td>Button</td>
+                              <td>
+                                <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                              </td>
                             </tr>    
                             @endforeach
                             
@@ -87,11 +89,13 @@
                             <tbody>
                               @foreach ($pulangs as $row)
                               <tr>
-                                <td>{{ $row -> nis }}</td>
+                                <td>{{ $row -> santri -> name }}</td>
                                 <td>{{ $row -> reason }}</td>
                                 <td>{{ $row -> start_date }}</td>
                                 <td>{{ $row -> finish_date }}</td>
-                                <td>edit | delete</td>
+                                <td>
+                                  <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                </td>
                               </tr>    
                               @endforeach
                                 
@@ -117,11 +121,13 @@
                           <tbody>
                             @foreach ($cutis as $row)
                             <tr>
-                              <td>{{ $row -> nis }}</td>
+                              <td>{{ $row -> santri -> name }}</td>
                               <td>{{ $row -> reason }}</td>
                               <td>{{ $row -> start_date }}</td>
                               <td>{{ $row -> finish_date }}</td>
-                              <td>edit | delete</td>
+                              <td>
+                                <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                              </td>
                             </tr>    
                             @endforeach
                             

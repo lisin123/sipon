@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Santri;
 use App\Models\IjinKegiatan;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\IjinPulangCuti;
+use App\Http\Controllers\Controller;
 
 class IzinController extends Controller
 {
@@ -16,9 +17,9 @@ class IzinController extends Controller
     public function index()
     {
         //
-        $kegiatans = IjinKegiatan::all();
-        $pulangs = IjinPulangCuti::all()->where('type', 'P');
-        $cutis = IjinPulangCuti::all()->where('type', 'C');
+        $kegiatans = IjinKegiatan::with('Santri', 'Kegiatan')->get();
+        $pulangs = IjinPulangCuti::with('Santri')->get()->where('type', 'P');
+        $cutis = IjinPulangCuti::with('Santri')->get()->where('type', 'C');
         
         return view('contents.izin')->with(compact('kegiatans', 'pulangs', 'cutis'));
     }

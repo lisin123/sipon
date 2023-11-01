@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('santris', function (Blueprint $table) {
-            $table->string('nis')->primary();
+            $table->string('nis');
             $table->string('name');
             $table->string('password');
             $table->string('kelas');
