@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('absens', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('nis');
             $table->string('id_act');
             $table->string('date');

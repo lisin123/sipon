@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IjinKegiatan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\IjinPulangCuti;
 
-class JenisAbsenController extends Controller
+class IzinController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         //
+        $kegiatans = IjinKegiatan::all();
+        $pulangs = IjinPulangCuti::all()->where('type', 'P');
+        $cutis = IjinPulangCuti::all()->where('type', 'C');
+        
+        return view('contents.izin')->with(compact('kegiatans', 'pulangs', 'cutis'));
     }
 
     /**

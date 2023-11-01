@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('liburs', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('id_act');
             $table->string('date');
             $table->string('reason');

@@ -15,7 +15,7 @@ class KegiatanSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('ijin_kegiatan')->insert([
+        DB::table('ijin_kegiatans')->insert([
             ['id_act' => 'MD', 'nis' => '1000120014', 'date' => '28/10/2023', 'reason' => 'praktikum', 'status' => NULL],
             ['id_act' => 'MD', 'nis' => '1000120015', 'date' => '28/10/2023', 'reason' => 'praktikum', 'status' => NULL],
             ['id_act' => 'MH', 'nis' => '1000120015', 'date' => '28/10/2023', 'reason' => 'praktikum', 'status' => NULL] 

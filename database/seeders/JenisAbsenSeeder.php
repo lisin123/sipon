@@ -14,7 +14,7 @@ class JenisAbsenSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('jenis_absen')->insert([
+        DB::table('jenis_absens')->insert([
             ['id_act' => 'BD', 'name_act' => 'Bandongan', 'start_time' => '05:15', 'finish_time' => '06:45'],
             ['id_act' => 'AQ', 'name_act' => 'Ngaji Al-Quran', 'start_time' => '15:45', 'finish_time' => '17:30'],
             ['id_act' => 'MH', 'name_act' => 'Mujahadah', 'start_time' => '19:15', 'finish_time' => '20:15'],

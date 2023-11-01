@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ijin_pulang_cutis', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('type'); //pulang atau cuti
             $table->string('nis');
             $table->string('reason');

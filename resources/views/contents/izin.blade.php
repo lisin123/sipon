@@ -56,13 +56,16 @@
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach ($kegiatans as $row)
                             <tr>
-                              <td>11-7-2014</td>
-                              <td>John Doe</td>
-                              <td>Madrasah Diniyah</span></td>
-                              <td>Bacon ipsum dolor.</td>
+                              <td>{{ $row -> date }}</td>
+                              <td>{{ $row -> nis }}</td>
+                              <td>{{ $row -> id_act }}</span></td>
+                              <td>{{ $row -> reason }}</td>
                               <td>Button</td>
-                            </tr>
+                            </tr>    
+                            @endforeach
+                            
                           </tbody>
                         </table>                                
                       </div>
@@ -82,13 +85,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Jack Nixon</td>
-                                    <td>Magang</td>
-                                    <td>9/14/2023</td>
-                                    <td>12/14/2023</td>
-                                    <td>edit | delete</td>
-                                </tr>
+                              @foreach ($pulangs as $row)
+                              <tr>
+                                <td>{{ $row -> nis }}</td>
+                                <td>{{ $row -> reason }}</td>
+                                <td>{{ $row -> start_date }}</td>
+                                <td>{{ $row -> finish_date }}</td>
+                                <td>edit | delete</td>
+                              </tr>    
+                              @endforeach
+                                
                             </tbody>
                         </table>
                       </div>
@@ -109,13 +115,16 @@
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach ($cutis as $row)
                             <tr>
-                                <td>Jack Nixon</td>
-                                <td>Magang</td>
-                                <td>9/14/2023</td>
-                                <td>12/14/2023</td>
-                                <td>edit | delete</td>
-                            </tr>
+                              <td>{{ $row -> nis }}</td>
+                              <td>{{ $row -> reason }}</td>
+                              <td>{{ $row -> start_date }}</td>
+                              <td>{{ $row -> finish_date }}</td>
+                              <td>edit | delete</td>
+                            </tr>    
+                            @endforeach
+                            
                           </tbody>
                         </table>
                       </div>

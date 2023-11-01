@@ -14,7 +14,7 @@ class LiburSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('libur')->insert([
+        DB::table('liburs')->insert([
             [ 'id_act' => 'BD', 'date' => '28/10/2023', 'reason' => 'fosilatama'],
         ]);
     }

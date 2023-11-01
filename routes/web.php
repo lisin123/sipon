@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IzinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,7 @@ Route::get('/', function () {
     return view('contents.dashboard');
 });
 
-Route::get('/izin', function () {
-    return view('contents.izin');
-});
+Route::get('/izin', [IzinController::class, 'index']);
 
 Route::get('/datang', function () {
     return view('contents.datang');

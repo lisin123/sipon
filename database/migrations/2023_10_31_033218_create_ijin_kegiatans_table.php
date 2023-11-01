@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ijin_kegiatans', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('date');
             $table->string('nis');
             $table->string('id_act');
