@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\IjinKegiatan;
+use App\Models\santri;
 use Illuminate\Http\Request;
 use App\Models\IjinPulangCuti;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,7 @@ class IzinController extends Controller
     public function index()
     {
         //
+        $santri = santri::all();
         $kegiatans = IjinKegiatan::with('Santri', 'Kegiatan')->get();
         $pulangs = IjinPulangCuti::with('Santri')->get()->where('type', 'P')->where('is_come', 'False');
         $cutis = IjinPulangCuti::with('Santri')->get()->where('type', 'C')->where('is_come', 'False');
@@ -36,22 +38,27 @@ class IzinController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->validate($request,[
-            'nis' => 'required',
-            'id_act' => 'required',
-            'date' => 'required',
-            'reason' => 'required',
-        ]);
+        $cek=Santri::where('nis',$request->nis)->count();
+        if($cek==1){
 
-        $acts = new IjinKegiatan;
-
-        $acts->nis = $request->input('nis');
-        $acts->id_act = $request->input('id_act');
-        $acts->date = $request->input('date');
-        $acts->reason = $request->input('reason');
-
-        $acts -> save();
+            $this->validate($request,[
+                'nis' => 'required',
+                'id_act' => 'required',
+                'date' => 'required',
+                'reason' => 'required',
+            ]);
+    
+            $acts = new IjinKegiatan;
+    
+            $acts->nis = $request->input('nis');
+            $acts->id_act = $request->input('id_act');
+            $acts->date = $request->input('date');
+            $acts->reason = $request->input('reason');
+    
+            $acts -> save();
+        }else{
+            return redirect('/izin')->with('errors', 'NIS tidak ditemukan');
+        }
 
         return redirect('/izin')->with('success', 'Data Berhasil Disimpan');
     }
