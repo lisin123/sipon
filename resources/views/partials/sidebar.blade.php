@@ -66,7 +66,7 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="/libur" class="nav-link">
                     <i class="nav-icon fas fa-calendar"></i>
                     <p>
@@ -81,7 +81,7 @@
                     Pengaturan
                     </p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

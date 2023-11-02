@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IzinController;
+use App\Http\Controllers\KedatanganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,9 @@ Route::get('/', function () {
 
 Route::get('/izin', [IzinController::class, 'index']);
 
-Route::get('/datang', function () {
-    return view('contents.datang');
-});
+Route::put('/izin', [IzinController::class, 'store']);
+
+Route::get('/datang', [KedatanganController::class, 'index']);
 
 Route::get('/rekap', function () {
     return view('contents.rekap');

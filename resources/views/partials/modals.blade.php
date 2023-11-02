@@ -11,28 +11,28 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
+            <form action="" method="POST">
             <div class="modal-body">
-                <form>
+                
                     <!-- text input -->
                     <div class="form-group">
                         <label>NIS</label>
-                        <input type="text" class="form-control">
+                        <input name='nis' type="text" class="form-control">
                     </div>
                     
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" disabled="">
+                        <input name='name' type="text" class="form-control" disabled="">
                     </div>
                     
                     <!-- select -->
                     <div class="form-group">
                         <label>Jenis Kegiatan</label>
-                        <select class="form-control">
-                        <option>kegiatan 1</option>
-                        <option>kegiatan 2</option>
-                        <option>kegiatan 3</option>
-                        <option>kegiatan 4</option>
-                        <option>kegiatan 5</option>
+                        <select id="id_act" class="form-control" name='id_act' onchange="change()">
+                        <option value="BD">Bandongan</option>
+                        <option value="AQ">Ngaji Al-Qur'an</option>
+                        <option value="MH">Mujahadah</option>
+                        <option value="MD">Madrasah Diniyah</option>
                         </select>
                     </div>
                     
@@ -43,21 +43,22 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                           </div>
-                          <input type="text" id="datemask" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
+                          <input type="text" name='date' id="datemask" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
                         </div>
                         <!-- /.input group -->
                     </div>
   
                     <div class="form-group">
                         <label>Alasan</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name='reason' class="form-control">
                     </div>
-                </form>
+                
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
             </div>
+        </form>
         </div>
         </div>
     </div>
@@ -74,16 +75,18 @@
           </button>
           </div>
           <div class="modal-body">
-              <form>
+              <form action="" method="POST">
+
+                {{ csrf_field() }}
                   <!-- text input -->
                   <div class="form-group">
                       <label>NIS</label>
-                      <input type="text" class="form-control">
+                      <input name='nis' type="text" class="form-control">
                   </div>
                   
                   <div class="form-group">
                       <label>Nama</label>
-                      <input type="text" class="form-control" disabled="">
+                      <input name='name' type="text" class="form-control" disabled="">
                   </div>
                   
                   <div class="form-group">
@@ -102,7 +105,7 @@
                   
                   <div class="form-group">
                       <label>Alasan</label>
-                      <input type="text" class="form-control">
+                      <input name='reason' type="text" class="form-control">
                   </div>
               </form>
           </div>

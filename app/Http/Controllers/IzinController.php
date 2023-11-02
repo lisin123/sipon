@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Santri;
 use App\Models\IjinKegiatan;
 use Illuminate\Http\Request;
 use App\Models\IjinPulangCuti;
@@ -18,8 +17,8 @@ class IzinController extends Controller
     {
         //
         $kegiatans = IjinKegiatan::with('Santri', 'Kegiatan')->get();
-        $pulangs = IjinPulangCuti::with('Santri')->get()->where('type', 'P');
-        $cutis = IjinPulangCuti::with('Santri')->get()->where('type', 'C');
+        $pulangs = IjinPulangCuti::with('Santri')->get()->where('type', 'P')->where('is_come', 'False');
+        $cutis = IjinPulangCuti::with('Santri')->get()->where('type', 'C')->where('is_come', 'False');
         
         return view('contents.izin')->with(compact('kegiatans', 'pulangs', 'cutis'));
     }
@@ -38,6 +37,23 @@ class IzinController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'nis' => 'required',
+            'id_act' => 'required',
+            'date' => 'required',
+            'reason' => 'required',
+        ]);
+
+        $acts = new IjinKegiatan;
+
+        $acts->nis = $request->input('nis');
+        $acts->id_act = $request->input('id_act');
+        $acts->date = $request->input('date');
+        $acts->reason = $request->input('reason');
+
+        $acts -> save();
+
+        return redirect('/izin')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**

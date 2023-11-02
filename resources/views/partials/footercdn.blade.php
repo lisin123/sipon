@@ -59,5 +59,9 @@
   $('#kegiatanModal').on('shown.bs.modal', function() {
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
   });
-  
+
+  // Get value select option
+  function change() {
+    document.getElementById("id_act").value = document.getElementById("id_act").value;
+  }
 </script>

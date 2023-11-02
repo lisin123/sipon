@@ -49,12 +49,17 @@
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach ($konfirmasi as $row)
                             <tr>
-                              <td>John Doe</td>
-                              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                              <td>11-7-2014</td>
-                              <td>Konfirmasi</td>
-                            </tr>
+                              <td>{{ $row -> santri -> name }}</td>
+                              <td>{{ $row -> reason }}</td>
+                              <td>{{ $row -> finish_date }}</td>
+                              <td>
+                                <button class="btn btn-success">konfirmasi</button>
+                              </td>
+                            </tr>    
+                            @endforeach
+                            
                           </tbody>
                         </table>                                
                       </div>
@@ -65,21 +70,26 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Alasan</th>
-                                    <th>Pergi-Kembali</th>
+                                    <th>Pergi</th>
+                                    <th>Kembali</th>
                                     <th>Telat</th>
                                     <th>Denda</th>
                                     <th>Lunas</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Jack Nixon</td>
-                                    <td>Magang</td>
-                                    <td>11/14/2023-12/14/2023</td>
-                                    <td>2 hari</td>
-                                    <td>Rp 20.000</td>
-                                    <td>checkbox</td>
-                                </tr>
+                              @foreach ($riwayat as $row)
+                              <tr>
+                                <td>{{ $row -> santri -> name }}</td>
+                                <td>{{ $row -> reason }}</td>
+                                <td>{{ $row -> start_date }}</td>
+                                <td>{{ $row -> finish_date }}</td>
+                                <td>{{ $row -> late }}</td>
+                                <td>{{ $row -> charge}}</td>
+                                <td></td>
+                              </tr>
+                              @endforeach
+                                
                             </tbody>
                         </table>
                       </div>

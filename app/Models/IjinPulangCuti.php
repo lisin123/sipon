@@ -9,6 +9,8 @@ class IjinPulangCuti extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     public function santri(){
         return $this->belongsTo(Santri::class, 'nis');
     }

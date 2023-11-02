@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\IjinPulangCuti;
+use Illuminate\Routing\Controller;
 
 class KedatanganController extends Controller
 {
@@ -12,6 +15,12 @@ class KedatanganController extends Controller
     public function index()
     {
         //
+        $month = Carbon::today()->subDays(30);
+        $konfirmasi = IjinPulangCuti::with('Santri')->where('is_come', 'False')->get();
+        $riwayat = IjinPulangCuti::with('Santri')->where('finish_date', '>=', $month)->where('is_come', 'True')->get();
+        
+
+        return view('contents.datang')->with(compact('konfirmasi', 'riwayat'));
     }
 
     /**
