@@ -4,7 +4,7 @@
 <script src="{{ asset('template/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -31,37 +31,59 @@
 <script src="{{ asset('template/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('template/dist/js/pages/dashboard.js') }}"></script>
+{{-- Select2 --}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-  new DataTable('.table');
-  $('.table').DataTable( {
-    responsive: true
-  } );
+    new DataTable('.table');
+    $('.table').DataTable({
+        responsive: true
+    });
 </script>
 
 <script type="text/javascript">
-  //Date picker
-  $(function () {
-    $('#reservation').daterangepicker();
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
-    $('[data-mask]').inputmask();
-  });
+    //Date picker
+    $(function() {
+        $('#reservation').daterangepicker();
+        $('#datemask').inputmask('dd/mm/yyyy', {
+            'placeholder': 'dd/mm/yyyy'
+        });
+        $('[data-mask]').inputmask();
+    });
 
-  $('#cutiModal').on('shown.bs.modal', function() {
-    $('#reservation').daterangepicker();
-  });
+    $('#cutiModal').on('shown.bs.modal', function() {
+        $('#reservation').daterangepicker();
+    });
 
-  $('#pergiModal').on('shown.bs.modal', function() {
-    $('#reservation2').daterangepicker();
-  });
+    $('#pergiModal').on('shown.bs.modal', function() {
+        $('#reservation2').daterangepicker();
+    });
 
-  //Datemask dd/mm/yyyy
-  $('#kegiatanModal').on('shown.bs.modal', function() {
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
-  });
+    //Datemask dd/mm/yyyy
+    $('#kegiatanModal').on('shown.bs.modal', function() {
+        $('#datemask').inputmask('dd/mm/yyyy', {
+            'placeholder': 'dd/mm/yyyy'
+        });
+    });
 
-  // Get value select option
-  function change() {
-    document.getElementById("id_act").value = document.getElementById("id_act").value;
-  }
+    // Get value select option
+    function change() {
+        document.getElementById("id_act").value = document.getElementById("id_act").value;
+    }
+
+    $(document).ready(function() {
+        $('#nis').select2({ dropdownParent: "#kegiatanModal" });
+        $('#nis2').select2({ dropdownParent: "#pergiModal" });
+        $('#nis3').select2({ dropdownParent: "#cutiModal" });
+    });
+
+    function getId(id,tabel){
+        $('#id').val(id)
+        $('#tabel').val(tabel)
+    }
+
+    function getIds(id){
+        $('#id').val(id)
+    }
+
 </script>

@@ -12,6 +12,7 @@ class IjinKegiatan extends Model
     use HasFactory;
 
     // protected $primaryKey = 'nis';
+    public $timestamps = false;
 
     public function santri(){
         return $this->belongsTo(Santri::class, 'nis');

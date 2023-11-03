@@ -55,7 +55,7 @@
                               <td>{{ $row -> reason }}</td>
                               <td>{{ $row -> finish_date }}</td>
                               <td>
-                                <button class="btn btn-success">konfirmasi</button>
+                                <button onclick="getIds({{ $row->id }})" class="btn btn-success" data-toggle="modal" data-target="#datangModal">konfirmasi</button>
                               </td>
                             </tr>    
                             @endforeach
@@ -107,4 +107,31 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+{{-- Kedatangan Modal --}}
+<div class="modal fade" id="datangModal" tabindex="-1" role="dialog" aria-labelledby="liburModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Kedatangan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('izin.konfirmasi') }}" method="POST">
+            <div class="modal-body">
+                <p>Yakin???</p>
+                    @csrf
+                    @method('put')
+                    <input id="id" name="id" value="" type="hidden">
+                    <input id="date" name="date" value="" type="hidden" value="{{ date('Y-m-d') }}">
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

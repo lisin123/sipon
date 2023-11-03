@@ -2,7 +2,8 @@
 
 {{-- kegiatan modal --}}
 <!-- Modal -->
-<div class="modal fade" id="kegiatanModal" tabindex="-1" role="dialog" aria-labelledby="kegiatanModalLabel"
+
+<div class="modal fade" id="kegiatanModal"  tabindex="-1"  role="dialog" aria-labelledby="kegiatanModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -18,8 +19,8 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>NIS</label>
-                        {{-- <input name='nis' type="text" class="form-control"> --}}
-                        <select id="nis" class="form-control" name='nis'>
+                        <br>
+                        <select id="nis" class="form-control" name='nis' style="width: 100%">
                             <option value="">--pilih santri--</option>
                             @foreach ($santri as $row)
                                 <option value="{{ $row['nis'] }}">{{ $row['name'] }}</option>
@@ -27,12 +28,6 @@
                         </select>
                     </div>
 
-                    {{-- <div class="form-group">
-                        <label>Nama</label>
-                        <input name='name' type="text" class="form-control" disabled="">
-                    </div> --}}
-
-                    <!-- select -->
                     <div class="form-group">
                         <label>Jenis Kegiatan</label>
                         <select id="id_act" class="form-control" name='id_act' onchange="change()">
@@ -50,7 +45,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="text" name='date' id="datemask" class="form-control"
+                            <input type="date" name='date' id="datemask" class="form-control"
                                 data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
                                 inputmode="numeric">
                         </div>
@@ -84,19 +79,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="{{ route('izin.store2') }}" method="POST">
             <div class="modal-body">
-                <form action="" method="POST">
 
                     {{ csrf_field() }}
                     <!-- text input -->
                     <div class="form-group">
                         <label>NIS</label>
-                        <input name='nis' type="text" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input name='name' type="text" class="form-control" disabled="">
+                        <br>
+                        <select id="nis2" class="form-control" name='nis' style="width: 100%">
+                            <option value="">--pilih santri--</option>
+                            @foreach ($santri as $row)
+                                <option value="{{ $row['nis'] }}">{{ $row['name'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -116,14 +112,15 @@
                     <div class="form-group">
                         <label>Alasan</label>
                         <input name='reason' type="text" class="form-control">
+                        <input type="hidden" name="type" class="form-control" value="P">
                     </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -141,17 +138,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="{{ route('izin.store2') }}" method="POST">
+                @csrf
             <div class="modal-body">
-                <form>
                     <!-- text input -->
                     <div class="form-group">
                         <label>NIS</label>
-                        <input type="text" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" class="form-control" disabled="">
+                        <br>
+                        <select id="nis3" class="form-control" name='nis' style="width: 100%">
+                            <option value="">--pilih santri--</option>
+                            @foreach ($santri as $row)
+                                <option value="{{ $row['nis'] }}">{{ $row['name'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -171,15 +170,16 @@
 
                     <div class="form-group">
                         <label>Alasan</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="reason" class="form-control">
+                        <input type="hidden" name="type" class="form-control" value="C">
                     </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -238,3 +238,33 @@
         </div>
     </div>
 </div>
+
+{{-- Delete Modal --}}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="liburModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('izin.destroy') }}" method="POST">
+            <div class="modal-body">
+                <p>Ingin menghapus data ini?</p>
+                    @csrf
+                    @method('delete')
+                    <input id="id" name="id" value="" type="hidden">
+                    <input id="tabel" name="tabel" value="" type="hidden">
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

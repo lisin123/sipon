@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::get('/izin', [IzinController::class, 'index'])->name('izin');
 Route::post('/izin', [IzinController::class, 'store'])->name('izin.store');
-// Route::put('/izin', [IzinController::class, 'store']);
+Route::post('/izin2', [IzinController::class, 'store2'])->name('izin.store2');
+Route::delete('/izin', [IzinController::class, 'destroy'])->name('izin.destroy');
+Route::put('/izin', [IzinController::class, 'update'])->name('izin.konfirmasi');
 
 Route::get('/datang', [KedatanganController::class, 'index']);
 

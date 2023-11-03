@@ -81,7 +81,7 @@
                               <td>{{ $row -> kegiatan -> name_act }}</span></td>
                               <td>{{ $row -> reason }}</td>
                               <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                <button onclick="getId({{ $row->id }},'kegiatan')" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i></button>
                               </td>
                             </tr>    
                             @endforeach
@@ -112,7 +112,7 @@
                                 <td>{{ $row -> start_date }}</td>
                                 <td>{{ $row -> finish_date }}</td>
                                 <td>
-                                  <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                  <button onclick="getId({{ $row->id }},'pulang')" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i></button>
                                 </td>
                               </tr>    
                               @endforeach
@@ -144,7 +144,7 @@
                               <td>{{ $row -> start_date }}</td>
                               <td>{{ $row -> finish_date }}</td>
                               <td>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                <button onclick="getId({{ $row->id }},'cuti')" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i></button>
                               </td>
                             </tr>    
                             @endforeach
