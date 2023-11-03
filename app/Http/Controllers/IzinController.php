@@ -108,21 +108,21 @@ class IzinController extends Controller
         $konfirmasi=IjinPulangCuti::where('id',$request->id)->first();
 
         $data['is_come']='True';
-        $time1 = new DateTime(date("Y-m-d"));
-        $time2 = new DateTime($konfirmasi->finish_date);
+        // $time1 = new DateTime(date("Y-m-d"));
+        // $time2 = new DateTime($konfirmasi->finish_date);
         
-        $interval = $time1->diff($time2)->format("%r%a");
-        echo "$interval hari";
-        echo $data['late']=Carbon::now()->diffInDays($konfirmasi->finish_date);
+        // $interval = $time1->diff($time2)->format("%r%a");
+        // echo "$interval hari";
+        // echo $data['late']=Carbon::now()->diffInDays($konfirmasi->finish_date);
         if(Carbon::now()>$konfirmasi->finish_date){
 
             $data['late']=Carbon::now()->diff($konfirmasi->finish_date)->d;
         }else{
             $data['late']=0;
         }
-        dd($data);
-        // IjinPulangCuti::where('id',$request->id)->update($data);
-        // return redirect('/datang')->with('success', 'Data Berhasil Dikonfirmasi');
+        // dd($data);
+        IjinPulangCuti::where('id',$request->id)->update($data);
+        return redirect('/datang')->with('success', 'Data Berhasil Dikonfirmasi');
     
     }
 

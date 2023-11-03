@@ -128,7 +128,7 @@
                 </div>
                 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <button type="submit" class="btn btn-info">OK</button>
                 </div>
             </form>
         </div>
