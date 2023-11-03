@@ -120,7 +120,7 @@ class IzinController extends Controller
         }else{
             $data['late']=0;
         }
-        // dd($data);
+        dd($data);
         IjinPulangCuti::where('id',$request->id)->update($data);
         return redirect('/datang')->with('success', 'Data Berhasil Dikonfirmasi');
     
