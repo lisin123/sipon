@@ -85,7 +85,7 @@
                                 <td>{{ $row -> start_date }}</td>
                                 <td>{{ $row -> finish_date }}</td>
                                 <td>{{ $row -> late }}</td>
-                                <td>{{ $row -> charge}}</td>
+                                <td>{{ $row -> late*10000}}</td>
                                 <td></td>
                               </tr>
                               @endforeach
